@@ -1,1 +1,29 @@
-<?= $content ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+	<head>
+		<title>En</title>
+
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+
+		<link href="/css/style.css" rel="stylesheet" type="text/css">
+
+		<!--link rel="shortcut icon" href="/favicon.ico"-->
+
+	</head>
+	<body>
+		<?= $content ?>
+		<!-- scripts begin -->
+
+		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+		<script type="text/javascript" src="/js/smartcore.js"></script>
+		<script type="text/javascript" src="/js/smartcore.users.js"></script>
+		<script type="text/javascript" src="/js/smartcore.events.js"></script>
+		<script type="text/javascript" src="/js/smartcore.services.js"></script>
+
+		<script>$(SmartCore.main);</script>
+	</body>
+</html>

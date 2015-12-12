@@ -1,0 +1,5 @@
+SmartCore.events = {
+	init : function () {
+
+	}
+};
