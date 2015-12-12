@@ -1,0 +1,5 @@
+SmartCore.users = {
+	init : function () {
+		
+	}
+};

@@ -1,0 +1,5 @@
+SmartCore.services = {
+	init : function () {
+		
+	}
+};
