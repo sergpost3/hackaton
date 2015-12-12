@@ -4,7 +4,7 @@ namespace app\models;
 
 use Yii;
 
-class Status extends \yii\db\ActiveRecord
+class Cabinet extends \yii\db\ActiveRecord
 {
     public static function tableName()
     {

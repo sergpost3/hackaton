@@ -3,16 +3,16 @@ namespace frontend\controllers;
 
 use Yii;
 use yii\base\InvalidParamException;
-use frontend\models\Events;
+use frontend\models\Cabinet;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
 /**
- * Events controller
+ * Cabinet controller
  */
-class EventsController extends Controller
+class CabinetController extends Controller
 {
     /**
      * @inheritdoc
@@ -62,62 +62,12 @@ class EventsController extends Controller
     }
 
     /**
-     * Displays events page.
-     *
-     * @return mixed
-     */
-    public function actionIndex()
-    {
-        return $this->render('index');
-    }
-
-    /**
-     * Displays event view page.
-     *
-     * @return mixed
-     */
-    public function actionView()
-    {
-        return $this->render('index');
-    }
-
-    /**
-     * Displays add event page.
-     *
-     * @return mixed
-     */
-    public function actionAdd()
-    {
-        return $this->render('index');
-    }
-
-    /**
-     * Displays moderate event page.
-     *
-     * @return mixed
-     */
-    public function actionModerate()
-    {
-        return $this->render('index');
-    }
-
-    /**
-     * Displays personal event page.
-     *
-     * @return mixed
-     */
-    public function actionPersonal()
-    {
-        return $this->render('index');
-    }
-
-    /**
      * Displays edit event page.
      *
      * @return mixed
      */
     public function actionEdit()
     {
-        return $this->render('index');
+        return $this->render('edit');
     }
 }
