@@ -33,7 +33,8 @@ return [
             'showScriptName' => false,
 			'rules'=>array(
 				''=>'index/index',
-				'<action>'=>'index/<action>',
+				//'<action>'=>'index/<action>',
+
 			),
         ],
     ],
