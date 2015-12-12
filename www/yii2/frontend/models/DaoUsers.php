@@ -22,7 +22,7 @@ use Yii;
  * @property Events[] $events
  * @property Likes[] $likes
  */
-class Users extends \yii\db\ActiveRecord
+class DaoUsers extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc

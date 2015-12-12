@@ -30,7 +30,7 @@ use Yii;
  * @property Users $fKOrganizer
  * @property Likes[] $likes
  */
-class Events extends \yii\db\ActiveRecord
+class DaoEvents extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc

@@ -20,7 +20,7 @@ use Yii;
  *
  * @property Likes[] $likes
  */
-class Services extends \yii\db\ActiveRecord
+class DaoServices extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
