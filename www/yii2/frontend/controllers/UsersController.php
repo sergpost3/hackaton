@@ -8,6 +8,7 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\web\User;
 
 /**
  * User controller
@@ -18,23 +19,28 @@ class UsersController extends Controller
 	 * Sign in page and signing in
 	 */
 	public function actionSignin () {
-		if (Yii::$app->request->isPost || false) {
+		if (\app\models\Users::getRights() > 0) {
+			return $this->redirect('/');
+		}
+		if ($post = Yii::$app->request->post()) {
 			$error = '';
-			if (!empty(Yii::$app->request->getQueryParam('email')))
-				$email = Yii::$app->request->getQueryParam('email');
+			if (isset($post['email']) && !empty($post['email']))
+				$email = $post['email'];
 			else
 				$error = 'Введіть, будь ласка, email';
-			if (!empty(Yii::$app->request->getQueryParam('password')))
-				$pass = Yii::$app->request->getQueryParam('password');
+			if (isset($post['password']) && !empty($post['password']))
+				$pass = $post['password'];
 			else
 				$error = 'Введіть, будь ласка, пароль';
 
 			if (empty ($error)) {
 				$users = new \app\models\Users;
+				$users->login = $email;
+				$users->pass  = $pass;
 				if ($users->signin()) {
 					return $this->redirect('/events');
 				} else
-					$error = 'На жаль, не можливо увійти через помилку у введенні email та/або паролю.';
+					$error = 'На жаль, неможливо увійти через помилку у введенні email та/або паролю.';
 			}
 			if (!empty ($error)){
 				return  $this->render('signin', [
@@ -51,6 +57,12 @@ class UsersController extends Controller
 	 * Sign up page and signing up
 	 */
 	public function actionSignup () {
+		if (\app\models\Users::getRights() > 0) {
+			return $this->redirect('/');
+		}
+		if ($post = Yii::$app->request->post()) {
+
+		}
 		return $this->render('signup');
 	}
 
@@ -58,7 +70,8 @@ class UsersController extends Controller
 	 * Signs out the user
 	 */
 	public function actionSignout () {
-		return $this->render('signout');
+		\app\models\Users::logout();
+		return $this->redirect('/');
 	}
 
     /**
