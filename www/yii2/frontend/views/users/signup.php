@@ -8,6 +8,6 @@
 	<input type="password" name="pass" value="<?= (isset ($pass) ? $pass : '') ?>" placeholder="Введіть пароль">
 	<input type="text" name="name" value="<?= (isset ($name) ? $name : '') ?>" placeholder="Введіть своє ім'я">
 
-	<button class="ep-dom-sign-up-pass">Зареєструватись</button>
+	<button class="btn btn-lg btn-success ep-dom-sign-up-pass">Зареєструватись</button>
 </form>
 <!--<?php if (isset ($vk_link)) { ?><a href="<?= $vk_link ?>">Sign up via Vkontakte</a><?php } ?>-->

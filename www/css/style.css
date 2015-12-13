@@ -163,4 +163,13 @@ footer#page-wrapper {
 }
 h2 {
 	font-size: 3.56rem;
+	padding-bottom: 30px;
+}
+.page-wrap {
+	padding-bottom: 184px;
+	height: auto;
+	min-height: 100%;
+}
+.page-wrap ~ .footer {
+	margin-top: -184px;
 }

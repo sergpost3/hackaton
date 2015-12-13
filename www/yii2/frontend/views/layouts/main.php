@@ -16,13 +16,13 @@
 
 	</head>
 	<body>
-		<div class="wrap">
+		<div class="wrap page-wrap">
 			<?= $this->render('//_partials/user_header'); ?>
 			<div class="container page-container">
 				<?= $content ?>
 			</div>
-			<?= $this->render('//_partials/footer'); ?>
 		</div>
+		<?= $this->render('//_partials/footer'); ?>
 
 
 		<!-- scripts begin -->
