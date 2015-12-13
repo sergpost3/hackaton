@@ -68,10 +68,10 @@ class EventsController extends Controller
      *
      * @return mixed
      */
-    public function actionIndex()
-    {
-        return $this->render('index');
-    }
+	public function actionIndex()
+	{
+		return $this->render('index');
+	}
 
     /**
      * Displays event view page.
