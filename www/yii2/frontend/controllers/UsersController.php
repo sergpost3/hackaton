@@ -18,6 +18,32 @@ class UsersController extends Controller
 	 * Sign in page and signing in
 	 */
 	public function actionSignin () {
+		if (Yii::$app->request->isPost || false) {
+			$error = '';
+			if (!empty(Yii::$app->request->getQueryParam('email')))
+				$email = Yii::$app->request->getQueryParam('email');
+			else
+				$error = 'Введіть, будь ласка, email';
+			if (!empty(Yii::$app->request->getQueryParam('password')))
+				$pass = Yii::$app->request->getQueryParam('password');
+			else
+				$error = 'Введіть, будь ласка, пароль';
+
+			if (empty ($error)) {
+				$users = new \app\models\Users;
+				if ($users->signin()) {
+					return $this->redirect('/events');
+				} else
+					$error = 'На жаль, не можливо увійти через помилку у введенні email та/або паролю.';
+			}
+			if (!empty ($error)){
+				return  $this->render('signin', [
+					'email' => $email,
+					'pass'  => $pass,
+					'error' => $error,
+				]);
+			}
+		}
 		return $this->render('signin');
 	}
 
