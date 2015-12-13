@@ -4,6 +4,7 @@ namespace frontend\controllers;
 use Yii;
 use yii\base\InvalidParamException;
 use frontend\models\Events;
+use frontend\models\Users;
 use frontend\models\Transliterate;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
@@ -70,10 +71,11 @@ class EventsController extends Controller
      */
     public function actionIndex()
     {
-        //$list = Events::find()->rightJoin('users', '`users`.`id`=`events`.`FK_organizer_id`')->orderBy('updated desc')->limit('8')->all();
-        $list = Events::find()->joinWith('users')->where(['users.id'=>'events.FK_organizer_id'])->orderBy('updated desc')->limit('8')->all();
-        var_dump($list);
-        return $this->render('index', ['model' => $list]);
+        $list = Events::find()->orderBy('updated desc')->limit('8')->all();
+        $users = array();
+        foreach($list as $key=>$value)
+            $users[$key] = Users::find()->where(['id' => $value["FK_organizer_id"]])->one();
+        return $this->render('index', ['model' => $list, 'users' => $users]);
     }
 
     /**

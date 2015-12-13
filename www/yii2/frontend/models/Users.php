@@ -1,9 +1,10 @@
 <?php
 
-namespace app\models;
+namespace frontend\models;
 
-use common\models\User;
 use Yii;
+use common\models\User;
+use frontend\models\Events;
 
 class Users extends DaoUsers
 {
@@ -103,6 +104,10 @@ class Users extends DaoUsers
 			self::$currentUserCache = $result;
 		}
 		return $result;
+	}
+
+	public function getEvents() {
+		return $this->hasOne(Events::className(), ['FK_organizer_id' => 'id']);
 	}
 
 	/**

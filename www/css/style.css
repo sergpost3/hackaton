@@ -17,3 +17,8 @@ footer#page-wrapper {
 input[type=file] {
   display:block;
 }
+
+.card .card-image .card-title {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.5);
+}

@@ -3,6 +3,7 @@
 namespace frontend\models;
 
 use Yii;
+use frontend\models\Users;
 
 class Events extends DaoEvents
 {
@@ -16,7 +17,7 @@ class Events extends DaoEvents
         $posts = $this->model()->findAllBySql($sql);
     }
 
-	public function add() {
-
+    public function getUsers() {
+        return $this->hasOne(Users::className(), ['id' => 'FK_organizer_id']);
     }
 }
