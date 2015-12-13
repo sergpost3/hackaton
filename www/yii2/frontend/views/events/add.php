@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col s12">
-        <h1 class="header center red-text accent-2">Создать событие</h1>
+        <h1 class="header center red-text accent-2">Ð¡Ð¾Ð·Ð´Ð°Ñ‚ÑŒ Ñ�Ð¾Ð±Ñ‹Ñ‚Ð¸Ðµ</h1>
     </div>
 </div>
 
@@ -15,21 +15,21 @@
             <div class="row">
                 <div class="input-field">
                     <input id="name" name="name" type="text" class="validate" required="required">
-                    <label for="name">Имя</label>
+                    <label for="name">Ð˜Ð¼Ñ�</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field">
                     <input id="geo_name" name="geo_name" type="text" class="validate" required="required">
-                    <label for="geo_name">Имя метки на карте</label>
+                    <label for="geo_name">Ð˜Ð¼Ñ� Ð¼ÐµÑ‚ÐºÐ¸ Ð½Ð° ÐºÐ°Ñ€Ñ‚Ðµ</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field">
                     <input id="desc" name="desc" type="text" class="validate" required="required">
-                    <label for="desc">Описание события</label>
+                    <label for="desc">ÐžÐ¿Ð¸Ñ�Ð°Ð½Ð¸Ðµ Ñ�Ð¾Ð±Ñ‹Ñ‚Ð¸Ñ�</label>
                 </div>
             </div>
 
@@ -37,13 +37,13 @@
                 <div classs="col s12 m6 l6">
                     <div class="input-field">
                         <input id="date" name="date" type="date" class="validate" required="required">
-                        <label for="date">Дата</label>
+                        <label for="date">Ð”Ð°Ñ‚Ð°</label>
                     </div>
                 </div>
                 <div classs="col s12 m6 l6">
                     <div class="input-field">
                         <input id="time" name="time" type="time" class="validate" required="required">
-                        <label for="time">Время</label>
+                        <label for="time">Ð’Ñ€ÐµÐ¼Ñ�</label>
                     </div>
                 </div>
             </div>
@@ -51,36 +51,36 @@
             <div class="row">
                 <div class="input-field">
                     <textarea id="full_desc" name="full_desc" class="validate" required="required"></textarea>
-                    <label for="full_desc">Полное описание</label>
+                    <label for="full_desc">ÐŸÐ¾Ð»Ð½Ð¾Ðµ Ð¾Ð¿Ð¸Ñ�Ð°Ð½Ð¸Ðµ</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field">
                     <input id="max_people_count" name="max_people_count" type="text" class="validate" required="required">
-                    <label for="max_people_count">Максимальное количество участников</label>
+                    <label for="max_people_count">ÐœÐ°ÐºÑ�Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð¾Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑ�Ñ‚Ð²Ð¾ ÑƒÑ‡Ð°Ñ�Ñ‚Ð½Ð¸ÐºÐ¾Ð²</label>
                 </div>
             </div>
 
             <div class="row">
-                <label>Выберите тип события</label>
+                <label>Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ñ‚Ð¸Ð¿ Ñ�Ð¾Ð±Ñ‹Ñ‚Ð¸Ñ�</label>
                 <select class="browser-default" name="type" required="required">
-                    <option value="0">Вечеринка</option>
-                    <option value="1">Массовые гуляния</option>
+                    <option value="0">Ð’ÐµÑ‡ÐµÑ€Ð¸Ð½ÐºÐ°</option>
+                    <option value="1">ÐœÐ°Ñ�Ñ�Ð¾Ð²Ñ‹Ðµ Ð³ÑƒÐ»Ñ�Ð½Ð¸Ñ�</option>
                 </select>
             </div>
 
             <div class="row">
-                <label for="image">Выберите изображение для события</label>
+                <label for="image">Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ Ð´Ð»Ñ� Ñ�Ð¾Ð±Ñ‹Ñ‚Ð¸Ñ�</label>
                 <input id="image" class="form-control" type="file" name="image" required="required" />
             </div>
 
             <div class="row">
                 <p>
                     <input type="checkbox" id="checkBox1" name="private" />
-                    <label for="checkBox1">Частное мероприятие</label>
+                    <label for="checkBox1">Ð§Ð°Ñ�Ñ‚Ð½Ð¾Ðµ Ð¼ÐµÑ€Ð¾Ð¿Ñ€Ð¸Ñ�Ñ‚Ð¸Ðµ</label>
                 </p>
-                <button class="waves-effect red btn">Сохранить</button>
+                <button class="waves-effect red btn">Ð¡Ð¾Ñ…Ñ€Ð°Ð½Ð¸Ñ‚ÑŒ</button>
             </div>
         </form>
     </div>

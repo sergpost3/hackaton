@@ -72,7 +72,7 @@ input[type=file] {
 
 .card .card-image .card-title {
     width: 100%;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.9);
 }
 
 img.preview {
@@ -133,7 +133,7 @@ img.preview {
 	color: #f9f9f9;
 	line-height: 1.4em;
 	background: #d0230d;
-	border-top: 3px solid #8f1709;
+	border-top: 3px solid #B33223;
 	padding: 50px 0 30px 0;
 }
 .footer a {
@@ -147,7 +147,7 @@ img.preview {
 
 .header.user-header {
 	background: #d0230d;
-	border-bottom: 3px solid #8f1709;
+	border-bottom: 3px solid #B33223;
 	padding: 20px 0 20px 0;
 	color: white;
 }
@@ -189,4 +189,7 @@ h2 {
 .margin-fix-collapse
 {
 	margin-left: 15px;
+}
+.col.fix-btn {
+	line-height: 66px;
 }

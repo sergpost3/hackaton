@@ -3,7 +3,6 @@ namespace frontend\controllers;
 
 use Yii;
 use yii\base\InvalidParamException;
-use frontend\models\Cabinet;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -58,7 +57,7 @@ class UsersController extends Controller
 	 * Sign up page and signing up
 	 */
 	public function actionSignup () {
-		if (Users::getRights() > 0) {
+		if (\frontend\models\Users::getRights() > 0) {
 			return $this->redirect('/');
 		}
 
@@ -78,7 +77,7 @@ class UsersController extends Controller
 				$error = 'Введіть, будь ласка, своє ім\'я';
 
 			if (empty ($error)) {
-				$users = new \app\models\Users;
+				$users = new \frontend\models\Users;
 				$users->email = $email;
 				$users->name  = $name;
 				$users->pass  = $pass;
@@ -134,7 +133,7 @@ class UsersController extends Controller
 	 * Signs out the user
 	 */
 	public function actionSignout () {
-		\app\models\Users::logout();
+		\frontend\models\Users::logout();
 		return $this->redirect('/');
 	}
 
@@ -145,7 +144,38 @@ class UsersController extends Controller
      */
     public function actionEdit()
     {
-        return $this->render('edit');
+	    if (Users::getRights() > 0) {
+		    return $this->redirect('/');
+	    }
+	    $url = Yii::$app->request->get('userurl');
+	    $error = '';
+	    if ($post = Yii::$app->request->post()) {
+		    if (isset($post['email']) && !empty($post['email']))
+			    $email = $post['email'];
+		    else
+			    $error = 'Введіть, будь ласка, email';
+		    if (isset($post['pass']) && !empty($post['pass']))
+			    $pass = $post['pass'];
+		    else
+			    $error = 'Введіть, будь ласка, пароль';
+
+		    if (isset($post['name']) && !empty($post['name']))
+			    $name = $post['name'];
+		    else
+			    $error = 'Введіть, будь ласка, своє ім\'я';
+
+		    if (empty ($error)) {
+			    $users = new Users;
+			    $users->email = $email;
+			    $users->name  = $name;
+			    $users->pass  = $pass;
+			    if ($users->signin()) {
+				    return $this->redirect('/events');
+			    } else
+				    $error = 'На жаль, неможливо увійти через помилку у введенні email та/або паролю.';
+		    }
+	    }
+	    return $this->render('edit', ['user' => (new Users ())->getUsersData($url),'error' => $error]);
     }
 
 	/**
@@ -155,13 +185,14 @@ class UsersController extends Controller
 	 * useremail
 	 */
 	public function actionShow () {
-		return $this->render('userpage');
+		$url = Yii::$app->request->get('userurl');
+		return $this->render('userpage', ['user' => (new Users ())->getUsersData($url)]);
 	}
 
 
 	public function actionIndex()
 	{
-		return $this->render('index');
+		return $this->render('index', ['users' => (new Users ())->getUsersList()]);
 	}
 
 }

@@ -64,7 +64,6 @@ class Users extends DaoUsers
 				$this->signin();
 				return true;
 			}
-			echo 222;
 			return false;
 		}
 
@@ -100,7 +99,7 @@ class Users extends DaoUsers
 		$split = explode('[;]', $_COOKIE ['auth']);
 		if (!isset ($split [0]) || !is_numeric($split [0]))
 			return $result;
-		$user = (new User())->findOne(['id' => $split [0]]);
+		$user = (new Users())->findOne(['id' => $split [0]]);
 		if (md5($user->email . $user->pass) == $split [1]) {
 			$result = $user;
 			self::$currentUserCache = $result;
@@ -121,15 +120,17 @@ class Users extends DaoUsers
 	}
 
 	public function getUsersList () {
+		$users = (new Users())->find ()
+			->orderBy(['id' => SORT_DESC])
+			->limit(30)
+			->all ();
 
+		return $users;
 	}
 
-	public function getUsersDetails () {
-
-	}
-
-	public function editUsersDetails () {
-
+	public function getUsersData ($url) {
+		$user = (new Users())->findOne(['link' => $url]);
+		return $user;
 	}
 
 	public function editUsersData () {
