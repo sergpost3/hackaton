@@ -70,7 +70,9 @@ class EventsController extends Controller
      */
     public function actionIndex()
     {
-        $list = Events::find()->orderBy('updated desc')->limit('8')->all();
+        //$list = Events::find()->rightJoin('users', '`users`.`id`=`events`.`FK_organizer_id`')->orderBy('updated desc')->limit('8')->all();
+        $list = Events::find()->joinWith('users')->where(['users.id'=>'events.FK_organizer_id'])->orderBy('updated desc')->limit('8')->all();
+        var_dump($list);
         return $this->render('index', ['model' => $list]);
     }
 
