@@ -44,8 +44,9 @@ class Users extends DaoUsers
 	 *
 	 * @return DaoUsers|null the saved model or null if saving fails
 	 */
-	public function signup()
+	public function signup($email, $pass, $name)
 	{
+		return;
 		if ($this->validate()) {
 			$user = new User();
 			$user->username = $this->username;
@@ -85,6 +86,8 @@ class Users extends DaoUsers
 			return self::$currentUserCache;
 		$result = null;
 		$split = explode('[;]', $_COOKIE ['auth']);
+		if (!isset ($split [0]) || !is_numeric($split [0]))
+			return $result;
 		$user = (new User())->findOne(['id' => $split [0]]);
 		if (md5($user->email . $user->pass) == $split [1]) {
 			$result = $user;
