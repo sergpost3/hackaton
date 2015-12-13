@@ -16,6 +16,7 @@
 	<body>
 		<div class="wrap">
 			<?= $content ?>
+			<?= $this->render ('//_partials/footer'); ?>
 		</div>
 
 		<!-- scripts begin -->
