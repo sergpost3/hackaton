@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+use app\models\UsersEvents;
 use Yii;
 use yii\base\InvalidParamException;
 use frontend\models\Events;
@@ -93,8 +94,17 @@ class EventsController extends Controller
             throw new CHttpException(404, 'The specified post cannot be found.');
         $list = $list->one();
         $org = Users::find()->where(['id' => $list["FK_organizer_id"]])->one();
-        //$participients =
-        return $this->render('view', ['model' => $list, 'org' => $org]);
+        $participients = UsersEvents::find()->where(['FK_event_id' => $list->id]);
+        $pars = array();
+        if($participients->count()==0)
+            $participients = false;
+        if($participients) {
+            $participients = $participients->all();
+            foreach($participients as $value)
+                $pars[] = $value["id"];
+        }
+        $participients = Users::find()->where(['id' => $pars])->all();
+        return $this->render('view', ['model' => $list, 'org' => $org, 'participients' => $participients]);
     }
 
     /**

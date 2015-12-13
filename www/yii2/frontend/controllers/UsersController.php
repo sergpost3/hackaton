@@ -169,8 +169,8 @@ class UsersController extends Controller
 			    $users->email = $email;
 			    $users->name  = $name;
 			    $users->pass  = $pass;
-			    if ($users->signin()) {
-				    return $this->redirect('/events');
+			    if ($users->editUsersData($url)) {
+//				    return $this->redirect('/events');
 			    } else
 				    $error = 'На жаль, неможливо увійти через помилку у введенні email та/або паролю.';
 		    }
