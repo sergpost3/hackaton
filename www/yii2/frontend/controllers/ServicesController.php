@@ -4,6 +4,7 @@ namespace frontend\controllers;
 use Yii;
 use yii\base\InvalidParamException;
 use frontend\models\Services;
+use frontend\models\Users;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -12,7 +13,7 @@ use yii\filters\AccessControl;
 /**
  * Cabinet controller
  */
-class CabinetController extends Controller
+class ServicesController extends Controller
 {
     /**
      * @inheritdoc
@@ -68,7 +69,11 @@ class CabinetController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $list = Services::find()->orderBy('updated desc')->limit('6')->all();
+        $users = array();
+        foreach($list as $key=>$value)
+            $users[$key] = Users::find()->where(['id' => $value["FK_user_id"]])->one();
+        return $this->render('index', ['model' => $list, 'users' => $users]);
     }
 
     /**
@@ -86,9 +91,27 @@ class CabinetController extends Controller
      *
      * @return mixed
      */
-    public function actionView()
+    public function actionShow()
     {
-        return $this->render('index');
+        if (Yii::$app->request->get("servicename") == "")
+            throw new CHttpException(404, 'The specified post cannot be found.');
+        $servicename = Yii::$app->request->get("servicename");
+        $list = Services::find()->where(['link' => $servicename]);
+        if ($list->count() == 0)
+            throw new CHttpException(404, 'The specified post cannot be found.');
+        $list = $list->one();
+        $org = Users::find()->where(['id' => $list["FK_user_id"]])->one();
+        /*$participients = UsersEvents::find()->where(['FK_event_id' => $list->id]);
+        $pars = array();
+        if($participients->count()==0)
+            $participients = false;
+        if($participients) {
+            $participients = $participients->all();
+            foreach($participients as $value)
+                $pars[] = $value["id"];
+        }
+        $participients = Users::find()->where(['id' => $pars])->all();*/
+        return $this->render('view', ['model' => $list, 'org' => $org]);
     }
 
     /**

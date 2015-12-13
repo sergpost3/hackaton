@@ -38,6 +38,8 @@ return [
                 '/events/add' => 'events/add',
                 '/events/<eventname>' => 'events/show',
                 '/events/edit/<eventname>' => 'events/edit',
+                'services'=>'services/index',
+                '/services/<servicename>'=>'services/show',
 				'<action>'=>'index/<action>',
 				'/users/signin'  => 'users/signin',
 				'/users/signup'  => 'users/signup',

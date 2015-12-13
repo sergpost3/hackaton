@@ -136,7 +136,11 @@ class Users extends DaoUsers
 	public function editUsersData ($url) {
 		$user = (new Users())->findOne(['link' => $url]);
 		$user->email = $this->email;
-		$user
+		$user->name = $this->name;
+		$user->pass = md5($this->pass);
+		$user->email = $this->email;
+		$user->link = (new \frontend\models\Transliterate())->convert($this->name);
+		$user->updated = time ();
 		return $user->save();
 	}
 }

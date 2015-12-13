@@ -188,8 +188,12 @@ h2 {
 
 .margin-fix-collapse>li
 {
-	margin-left: 10px;
+	margin:10px;
 }
 .col.fix-btn {
 	line-height: 66px;
+}
+
+.col p {
+	margin-bottom:15px!important;
 }
