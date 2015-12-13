@@ -103,6 +103,7 @@ class EventsController extends Controller
             foreach($participients as $value)
                 $pars[] = $value["id"];
         }
+        Users::current()->id;
         $participients = Users::find()->where(['id' => $pars])->all();
         return $this->render('view', ['model' => $list, 'org' => $org, 'participients' => $participients]);
     }
