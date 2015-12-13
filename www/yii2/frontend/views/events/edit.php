@@ -87,6 +87,5 @@
     <div class="col-md-4">
         <img class="width100" src="img/sample.svg" alt="">
     </div>
-
-
 </div>
+
