@@ -16,11 +16,22 @@
                         <p class="red-text text-darken-2"><?= $model["full_desc"]; ?></p>
 
                         <p class="red-text text-darken-2">
-                            <strong>Организатор:</strong> <a href="/users/<?= $org["link"]; ?>"><?= $org["name"]; ?></a></p>
+                            <strong>Организатор:</strong> <a href="/users/<?= $org["link"]; ?>"><?= $org["name"]; ?></a>
+                        </p>
 
-                        <p class="red-text text-darken-2">
-                            <strong>Участники:</strong> <a href="">User2424</a>, <a href="">User2424</a></p>
-                        <br>
+                        <?php if ($participients) : ?>
+                            <p class="red-text text-darken-2">
+                                <strong>Участники:</strong>
+                                <?php $total = count($participients);
+                                $counter = 0; ?>
+                                <?php foreach ($participients as $us) : ?>
+                                    <?php $counter++; ?>
+                                    <a
+                                    href="/users/<?= $us["link"]; ?>"><?= $us["name"]; ?></a><?php if ($counter != $total) : ?>, <?php endif; ?>
+                                <?php endforeach; ?>
+                            </p>
+                            <br>
+                        <?php endif; ?>
 
 
                         <ul class="collapsible" data-collapsible="accordion">
@@ -44,10 +55,11 @@
                 </div>
             </div>
             <div class="card-action">
-                <button class="waves-effect green btn">Will go</button>
-                <button class="waves-effect red btn">fUCK YOOUUUU</button>
-                <button class="waves-effect grew btn">I don't know</button>
-
+                <form action="" method="">
+                    <button name="go" class="waves-effect green btn">Я пойду</button>
+                    <button name="not_go" class="waves-effect red btn">Я не пойду</button>
+                    <button name="maybe_go" class="waves-effect grew btn">Возможно пойду</button>
+                </form>
             </div>
         </div>
     </div>

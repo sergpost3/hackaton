@@ -186,7 +186,7 @@ h2 {
 	margin-top: -184px;
 }
 
-.margin-fix-collapse
+.margin-fix-collapse>li
 {
-	margin-left: 15px;
+	margin:10px;
 }
