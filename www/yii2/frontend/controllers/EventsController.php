@@ -93,7 +93,7 @@ class EventsController extends Controller
             throw new CHttpException(404, 'The specified post cannot be found.');
         $list = $list->one();
         $org = Users::find()->where(['id' => $list["FK_organizer_id"]])->one();
-
+        //$participients =
         return $this->render('view', ['model' => $list, 'org' => $org]);
     }
 
