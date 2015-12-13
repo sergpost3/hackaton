@@ -1,53 +1,19 @@
-<?php
+<div class="container landing-content">
 
-/* @var $this yii\web\View */
+	<p>Холодної зимової ночі, рівно о півночі, коли годинник проб’є дванадцять, до нас приходить Новий Рік, а з ним –
+	вітання, феєрверки, святкування і, звичайно ж, загадування бажань. Новий Рік – одне з найзагадковіших свят, і не
+	тільки тому, що його святкування пов’язане зі світом добрих казок і магії, але ще й тому, що це, мабуть, єдина
+	знаменна подія, що протягом століть одночасно відзначається людьми у всіх країнах і на всіх континентах. Однак, за
+	всіх часів і у різних народів, склались свої власні традиції зустрічі Нового Року. Отже, помандруємо світом та
+	поцікавимось звичаями святкувань різних націй!</p>
+	<p>У Великобританії напередодні Нового року в будинках має панувати зразковий лад, а всі борги, що накопичились за рік,
+	сплачені. З настанням опівночі господар будинку широко відчиняє двері, щоб старий рік пішов, а новий заходив до
+	оселі. Потім двері і вікна зачиняються і з цієї миті чекають першого гостя. Від того, хто першим переступить поріг
+	будинку, залежить чи щаститиме в наступному році. Ще одне правило для гостя – принести із собою для господарів корж,
+	віскі і маленький шматочок вугілля, який треба кинути в камін і побажати, щоб вогонь сімейного затишку палав вічно.
+	У Франції святковий стіл просто не уявляють без смаженої індички і моркви з медом, що забезпечує оселі повне
+	благополуччя на майбутні дванадцять місяців. Ще одна з ознак свята – Сантони – дерев’яні чи глиняні фігурки, які
+	ставлять біля ялинки. А в південних селищах Франції існує ще й такий звичай: хазяїн-винороб неодмінно повинен
+	обійняти бочку з вином, поздоровити її зі святом і випити за майбутній врожай.</p>
 
-$this->title = 'My Yii Application';
-?>
-<div class="site-index">
-
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
-        </div>
-
-    </div>
 </div>

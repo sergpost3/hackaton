@@ -8,6 +8,7 @@
 		<meta name="description" content="">
 		<meta name="keywords" content="">
 
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700,800' rel='stylesheet' type='text/css'>
 		<link href="/css/materialize.css" rel="stylesheet" type="text/css">
 		<link href="/css/style.css" rel="stylesheet" type="text/css">
 
@@ -15,7 +16,7 @@
 
 	</head>
 	<body>
-		<div class="container">
+		<div class="wrap">
 			<?= $this->render ('//_partials/user_header'); ?>
 			<?= $content ?>
 			<?= $this->render ('//_partials/footer'); ?>
