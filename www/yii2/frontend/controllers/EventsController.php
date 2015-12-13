@@ -91,7 +91,10 @@ class EventsController extends Controller
         $list = Events::find()->where(['link' => $eventname]);
         if ($list->count() == 0)
             throw new CHttpException(404, 'The specified post cannot be found.');
-        return $this->render('view', ['model' => $list->all()]);
+        $list = $list->one();
+        $org = Users::find()->where(['id' => $list["FK_organizer_id"]])->one();
+
+        return $this->render('view', ['model' => $list, 'org' => $org]);
     }
 
     /**
