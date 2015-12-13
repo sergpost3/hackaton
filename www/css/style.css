@@ -1,3 +1,55 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	font-family: "Open Sans";
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+html, .wrap {
+	height: 100%;
+}
+body {
+	line-height: 1;
+	height: 100%;
+}
+body.landing{
+	background-color: #030303;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
 #page-wrapper, footer#page-wrapper {
     margin: 0 5px 0 5px;
 }
@@ -25,4 +77,111 @@ input[type=file] {
 
 img.preview {
     width:100%;
+}
+
+.landing.header {
+	position: relative;
+	height: 100%;
+}
+.landing.header .header-image {
+	width: 100%;
+	height: 100%;
+	background: url(../images/landing_header.jpg);
+	background-size: cover;
+	background-position: center center;
+}
+.landing.header .header-blackout {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.8);
+	position: absolute;
+	top: 0;
+}
+.landing.header .header-text {
+	position: absolute;
+	top: 50%;
+	/*top: calc(50% - 36px);*/
+	top: calc(50% - 72px);
+	color: #fff;
+	font-weight: 300;
+	font-size: 72px;
+	text-align: center;
+
+	width: 100%;
+}
+.landing.header .header-text .btn {
+	font-size: 24px;
+	height: 48px;
+	width: 380px;
+	margin-top: 120px;
+	padding-top: 6px;
+}
+.landing-content {
+	padding: 100px 0;
+	color: #f9f9f9;
+	line-height: 1.4em;
+}
+.landing-content p {
+	color: #f9f9f9;
+	line-height: 1.4em;
+	margin-top: 30px;
+}
+.landing-content p:first-child {
+	margin-top: 0;
+}
+.footer {
+	color: #f9f9f9;
+	line-height: 1.4em;
+	background: #d0230d;
+	border-top: 3px solid #8f1709;
+	padding: 50px 0 30px 0;
+}
+.footer a {
+	color: #fff;
+	margin-bottom: 5px;
+	display: inline-block;
+}
+.footer a:hover {
+	text-decoration: underline;
+}
+
+.header.user-header {
+	background: #d0230d;
+	border-bottom: 3px solid #8f1709;
+	padding: 20px 0 20px 0;
+	color: white;
+}
+.header.user-header .header-logo {
+	color: #fffcf6;
+	font-weight: 300;
+	font-size: 24px;
+	display: inline-block;
+	text-decoration: none;
+	vertical-align: baseline;
+	margin-right: 50px;
+}
+.header.user-header .header-menu-item {
+	color: white;
+	vertical-align: baseline;
+	display: inline-block;
+	text-decoration: none;
+	margin-right: 30px;
+}
+.header.user-header .header-menu-item:hover {
+	text-decoration: underline;
+}
+.page-container {
+	padding: 40px 0;
+}
+h2 {
+	font-size: 3.56rem;
+	padding-bottom: 30px;
+}
+.page-wrap {
+	padding-bottom: 184px;
+	height: auto;
+	min-height: 100%;
+}
+.page-wrap ~ .footer {
+	margin-top: -184px;
 }

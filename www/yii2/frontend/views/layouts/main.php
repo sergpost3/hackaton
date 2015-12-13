@@ -8,6 +8,7 @@
 		<meta name="description" content="">
 		<meta name="keywords" content="">
 
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700,800' rel='stylesheet' type='text/css'>
 		<link href="/css/materialize.css" rel="stylesheet" type="text/css">
 		<link href="/css/style.css" rel="stylesheet" type="text/css">
 
@@ -15,13 +16,15 @@
 
 	</head>
 	<body>
-		<div class="container">
-			<?= $this->render ('//_partials/user_header'); ?>
-			<?= $content ?>
-			<?= $this->render ('//_partials/footer'); ?>
+		<div class="wrap page-wrap">
+			<?= $this->render('//_partials/user_header'); ?>
+			<div class="container page-container">
+				<?= $content ?>
+			</div>
 		</div>
+		<?= $this->render('//_partials/footer'); ?>
 
-		
+
 		<!-- scripts begin -->
 		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
