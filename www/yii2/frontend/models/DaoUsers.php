@@ -39,7 +39,7 @@ class DaoUsers extends \yii\db\ActiveRecord
     {
         return [
             [['FB_id', 'VK_id', 'access', 'created', 'updated'], 'integer'],
-            [['name', 'email', 'pass', 'image', 'link', 'created'], 'required'],
+//            [['name', 'email', 'pass', 'image', 'link', 'created'], 'required'],
             [['name'], 'string', 'max' => 100],
             [['email'], 'string', 'max' => 50],
             [['pass'], 'string', 'max' => 32],
