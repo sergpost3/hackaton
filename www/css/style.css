@@ -185,3 +185,8 @@ h2 {
 .page-wrap ~ .footer {
 	margin-top: -184px;
 }
+
+.margin-fix-collapse
+{
+	margin-left: 15px;
+}

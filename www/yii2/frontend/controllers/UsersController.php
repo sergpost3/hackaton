@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\web\User;
+use frontend\models\Users;
 
 /**
  * User controller
@@ -19,7 +20,7 @@ class UsersController extends Controller
 	 * Sign in page and signing in
 	 */
 	public function actionSignin () {
-		if (\app\models\Users::getRights() > 0) {
+		if (Users::getRights() > 0) {
 			return $this->redirect('/');
 		}
 		if ($post = Yii::$app->request->post()) {
@@ -34,7 +35,7 @@ class UsersController extends Controller
 				$error = 'Введіть, будь ласка, пароль';
 
 			if (empty ($error)) {
-				$users = new \app\models\Users;
+				$users = new Users;
 				$users->login = $email;
 				$users->pass  = $pass;
 				if ($users->signin()) {
@@ -57,7 +58,7 @@ class UsersController extends Controller
 	 * Sign up page and signing up
 	 */
 	public function actionSignup () {
-		if (\app\models\Users::getRights() > 0) {
+		if (Users::getRights() > 0) {
 			return $this->redirect('/');
 		}
 

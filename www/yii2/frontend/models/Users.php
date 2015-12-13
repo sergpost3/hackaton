@@ -95,6 +95,8 @@ class Users extends DaoUsers
 		if (!is_null(self::$currentUserCache))
 			return self::$currentUserCache;
 		$result = null;
+		if(!isset($_COOKIE["auth"]))
+			return NULL;
 		$split = explode('[;]', $_COOKIE ['auth']);
 		if (!isset ($split [0]) || !is_numeric($split [0]))
 			return $result;

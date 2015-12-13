@@ -13,6 +13,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use frontend\models\Cabinet;
+use frontend\models\Users;
 
 /**
  * Index controller
@@ -73,7 +74,7 @@ class IndexController extends Controller
      */
     public function actionIndex()
     {
-	    if (\app\models\Users::getRights() <= 0)
+	    if (Users::getRights() <= 0)
 		    $this->layout = 'landing';
         return $this->render('index');
     }

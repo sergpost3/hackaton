@@ -18,6 +18,6 @@ class Events extends DaoEvents
     }
 
     public function getUsers() {
-        return $this->hasOne(Users::className(), ['id' => 'FK_organizer_id']);
+        return $this->hasOne(\app\models\Users::className(), ['id' => 'FK_organizer_id']);
     }
 }
