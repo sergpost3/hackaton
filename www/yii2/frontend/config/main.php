@@ -34,6 +34,7 @@ return [
 			'rules'=>array(
 				''=>'index/index',
 				//'<action>'=>'index/<action>',
+                'events'=>'events/index',
 				'<action>'=>'index/<action>',
 
 				'/users/<useremail:[a-z0-9\-\_]+\.[a-z0-9\-\_]+[\.\d]{0,}>' => 'users/show',
