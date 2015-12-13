@@ -8,12 +8,8 @@
 		<meta name="description" content="">
 		<meta name="keywords" content="">
 
+		<link href="/css/materialize.css" rel="stylesheet" type="text/css">
 		<link href="/css/style.css" rel="stylesheet" type="text/css">
-		<link href="/css/bootstrap.css" rel="stylesheet" type="text/css">
-		<link href="/css/bootstrap-theme.css" rel="stylesheet" type="text/css">
-		<link href="/css/style1.css" rel="stylesheet" type="text/css">
-		<link href="/css/style2.css" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
 
 		<!--link rel="shortcut icon" href="/favicon.ico"-->
 

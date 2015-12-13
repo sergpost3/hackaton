@@ -71,7 +71,7 @@ class EventsController extends Controller
     public function actionIndex()
     {
         $list = Events::find()->orderBy('updated desc')->limit('8')->all();
-        return $this->render('index', ['model'=>$list]);
+        return $this->render('index', ['model' => $list]);
     }
 
     /**
@@ -81,7 +81,13 @@ class EventsController extends Controller
      */
     public function actionShow()
     {
-        return $this->render('show');
+        if (Yii::$app->request->get("eventname") == "")
+            throw new CHttpException(404, 'The specified post cannot be found.');
+        $eventname = Yii::$app->request->get("eventname");
+        $list = Events::find()->where(['link' => $eventname]);
+        if ($list->count() == 0)
+            throw new CHttpException(404, 'The specified post cannot be found.');
+        return $this->render('view', ['model' => $list->all()]);
     }
 
     /**
@@ -91,8 +97,9 @@ class EventsController extends Controller
      */
     public function actionAdd()
     {
-        if($post = Yii::$app->request->post()) {
+        if ($post = Yii::$app->request->post()) {
             $trans = new Transliterate();
+            $link = $trans->convert($post["name"]);
             $event = new Events();
             $event->name = $post["name"];
             $event->geo_x = "50.4853";//$post["geo_x"];
@@ -107,13 +114,14 @@ class EventsController extends Controller
             $event->max_people_count = $post["max_people_count"];
             $event->image = "asdcfvgh";//'';
             $event->type = $post["type"];
-            $event->private = (Yii::$app->request->post("private")=="on") ? 1 : 0;
-            $event->link = $trans->convert($post["name"]);
+            $event->private = (Yii::$app->request->post("private") == "on") ? 1 : 0;
+            $event->link = $link;
             $event->FK_organizer_id = "1";//'';
             $event->created = time();
             $event->updated = time();
             var_dump($event);
             $event->save(false);
+            $this->redirect("events/show/" . $link);
         }
 
         return $this->render('add');
@@ -136,6 +144,10 @@ class EventsController extends Controller
      */
     public function actionPersonal()
     {
+        // if !login goto events
+
+
+
         return $this->render('index');
     }
 
@@ -146,6 +158,41 @@ class EventsController extends Controller
      */
     public function actionEdit()
     {
-        return $this->render('edit');
+        if (Yii::$app->request->get("eventname") == "")
+            throw new CHttpException(404, 'The specified post cannot be found.');
+        $eventname = Yii::$app->request->get("eventname");
+        $list = Events::find()->where(['link' => $eventname]);
+        if ($list->count() == 0)
+            throw new CHttpException(404, 'The specified post cannot be found.');
+
+        if ($post = Yii::$app->request->post()) {
+            /*$trans = new Transliterate();
+            $link = $trans->convert($post["name"]);
+            $event = new Events();
+            $event->name = $post["name"];
+            $event->geo_x = "50.4853";//$post["geo_x"];
+            $event->geo_y = "30.5154";//$post["geo_y"];
+            $event->geo_zoom = "21";//$post["geo_zoom"];
+            $event->geo_name = $post["geo_name"];
+            $event->geo_google_maps_link = "https://www.google.com.ua/maps/search/kiev+geo+coo...";//$post["geo_google_maps_link"];
+            $event->desc = $post["desc"];
+            $event->datetime = "2015-12-13 16:00:00";//$post["datetime"];
+            $event->full_desc = $post["full_desc"];
+            $event->people_count = 0;
+            $event->max_people_count = $post["max_people_count"];
+            $event->image = "asdcfvgh";//'';
+            $event->type = $post["type"];
+            $event->private = (Yii::$app->request->post("private") == "on") ? 1 : 0;
+            $event->link = $link;
+            $event->FK_organizer_id = "1";//'';
+            $event->created = time();
+            $event->updated = time();
+            var_dump($event);
+            $event->save(false);
+            $this->redirect("events/show/" . $link);*/
+        }
+
+        echo $eventname;
+        return $this->render('edit', ['model' => $list->all()]);
     }
 }
