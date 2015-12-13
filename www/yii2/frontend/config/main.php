@@ -33,14 +33,11 @@ return [
             'showScriptName' => false,
 			'rules'=>array(
 				''=>'index/index',
-<<<<<<< HEAD
-				//'<action>'=>'index/<action>',
-
-=======
-				'<action>'=>'index/<action>',
+//				'<action>'=>'index/<action>',
 
 				'/users/<useremail:[a-z0-9\-\_]+\.[a-z0-9\-\_]+[\.\d]{0,}>' => 'users/show',
->>>>>>> origin/master
+//				'/events' => 'events/list',
+//				'/users'  => 'users/list',
 			),
         ],
     ],

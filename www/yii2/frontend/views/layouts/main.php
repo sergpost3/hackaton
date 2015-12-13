@@ -15,7 +15,9 @@
 	</head>
 	<body>
 		<div class="wrap">
+			<?= $this->render ('//_partials/user_header'); ?>
 			<?= $content ?>
+			<?= $this->render ('//_partials/footer'); ?>
 		</div>
 
 		<!-- scripts begin -->
