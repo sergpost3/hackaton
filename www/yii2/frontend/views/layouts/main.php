@@ -19,8 +19,13 @@
 
 	</head>
 	<body>
-		<div class="container"><?= $content ?></div>
+		<div class="container">
+			<?= $this->render ('//_partials/user_header'); ?>
+			<?= $content ?>
+			<?= $this->render ('//_partials/footer'); ?>
+		</div>
 
+		
 		<!-- scripts begin -->
 		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 

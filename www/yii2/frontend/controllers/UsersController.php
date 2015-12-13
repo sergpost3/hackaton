@@ -80,4 +80,11 @@ class UsersController extends Controller
 	public function actionShow () {
 		return $this->render('userpage');
 	}
+
+
+	public function actionIndex()
+	{
+		return $this->render('index');
+	}
+
 }
