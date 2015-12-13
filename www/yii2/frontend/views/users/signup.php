@@ -1,3 +1,5 @@
+<h2>Реєстрація</h2>
+
 <form action="/users/signup" method="post">
 	<input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
 	<div><?= (isset ($error) ? $error : '') ?></div>

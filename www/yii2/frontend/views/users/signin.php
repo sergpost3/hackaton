@@ -5,6 +5,8 @@
      * @var string $error
      */
 ?>
+<h2>Авторизація</h2>
+
 <form action="/users/signin" method="post">
 	<input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
 	<div><?= (isset ($error) ? $error : '') ?></div>

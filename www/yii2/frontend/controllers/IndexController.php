@@ -73,6 +73,8 @@ class IndexController extends Controller
      */
     public function actionIndex()
     {
+	    if (\app\models\Users::getRights() <= 0)
+		    $this->layout = 'landing';
         return $this->render('index');
     }
 

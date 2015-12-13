@@ -30,6 +30,8 @@ html, .wrap {
 body {
 	line-height: 1;
 	height: 100%;
+}
+body.landing{
 	background-color: #030303;
 }
 ol, ul {
@@ -129,4 +131,36 @@ footer#page-wrapper {
 }
 .footer a:hover {
 	text-decoration: underline;
+}
+
+.header.user-header {
+	background: #d0230d;
+	border-bottom: 3px solid #8f1709;
+	padding: 20px 0 20px 0;
+	color: white;
+}
+.header.user-header .header-logo {
+	color: #fffcf6;
+	font-weight: 300;
+	font-size: 24px;
+	display: inline-block;
+	text-decoration: none;
+	vertical-align: baseline;
+	margin-right: 50px;
+}
+.header.user-header .header-menu-item {
+	color: white;
+	vertical-align: baseline;
+	display: inline-block;
+	text-decoration: none;
+	margin-right: 30px;
+}
+.header.user-header .header-menu-item:hover {
+	text-decoration: underline;
+}
+.page-container {
+	padding: 40px 0;
+}
+h2 {
+	font-size: 3.56rem;
 }

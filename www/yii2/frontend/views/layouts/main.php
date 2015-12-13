@@ -17,12 +17,14 @@
 	</head>
 	<body>
 		<div class="wrap">
-			<?= $this->render ('//_partials/user_header'); ?>
-			<?= $content ?>
-			<?= $this->render ('//_partials/footer'); ?>
+			<?= $this->render('//_partials/user_header'); ?>
+			<div class="container page-container">
+				<?= $content ?>
+			</div>
+			<?= $this->render('//_partials/footer'); ?>
 		</div>
 
-		
+
 		<!-- scripts begin -->
 		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
