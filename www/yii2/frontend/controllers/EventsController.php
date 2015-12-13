@@ -71,8 +71,7 @@ class EventsController extends Controller
     public function actionIndex()
     {
         $list = Events::find()->orderBy('updated desc')->limit('8')->all();
-        var_dump($list);
-        return $this->render('index');
+        return $this->render('index', ['model'=>$list]);
     }
 
     /**
