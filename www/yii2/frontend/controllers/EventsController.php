@@ -145,6 +145,6 @@ class EventsController extends Controller
      */
     public function actionEdit()
     {
-        return $this->render('index');
+        return $this->render('edit');
     }
 }
