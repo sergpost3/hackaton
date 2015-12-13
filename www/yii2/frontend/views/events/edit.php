@@ -12,44 +12,54 @@
             <input type="hidden" name="geo_y" value="" required="required" />
             <input type="hidden" name="geo_google_maps_link" value="" required="required" />
             <input type="hidden" name="geo_zoom" value="" required="required" />
+            <input type="hidden" name="id" value="<?= $model["id"]; ?>" required="required" />
             <div class="row">
                 <div class="input-field">
-                    <input id="name" name="name" type="text" class="validate">
+                    <input id="name" name="name" type="text" value="<?= $model["name"]; ?>" class="validate">
                     <label for="name">Имя</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field">
-                    <input id="geo_name" name="geo_name" type="text" class="validate">
+                    <input id="geo_name" name="geo_name" type="text" value="<?= $model["geo_name"]; ?>" class="validate">
                     <label for="geo_name">Имя метки на карте</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field">
-                    <input id="desc" name="desc" type="text" class="validate">
+                    <input id="desc" name="desc" type="text" value="<?= $model["desc"]; ?>" class="validate">
                     <label for="desc">Описание события</label>
                 </div>
             </div>
 
             <div class="row">
-                <div class="input-field">
-                    <input id="datetime" name="datetime" type="date" class="validate">
-                    <label for="datetime">Дата</label>
+                <?php $date = explode(" ", $model["datetime"]); ?>
+                <div classs="col s12 m6 l6">
+                    <div class="input-field">
+                        <input id="date" name="date" type="date" value="<?= $date[0]; ?>" class="validate">
+                        <label for="date">Дата</label>
+                    </div>
+                </div>
+                <div classs="col s12 m6 l6">
+                    <div class="input-field">
+                        <input id="time" name="time" type="time" value="<?= $date[1]; ?>" class="validate">
+                        <label for="time">Время</label>
+                    </div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field">
-                    <input id="full_desc" name="full_desc" type="text" class="validate">
+                    <textarea id="full_desc" name="full_desc" class="validate"><?= $model["full_desc"]; ?></textarea>
                     <label for="full_desc">Полное описание</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field">
-                    <input id="max_people_count" name="max_people_count" type="text" class="validate">
+                    <input id="max_people_count" name="max_people_count" type="text" value="<?= $model["max_people_count"]; ?>" class="validate">
                     <label for="max_people_count">Максимальное количество участников</label>
                 </div>
             </div>
@@ -57,8 +67,8 @@
             <div class="row">
                 <label>Выберите тип события</label>
                 <select class="browser-default" name="type">
-                    <option value="0">Вечеринка</option>
-                    <option value="1">Массовые гуляния</option>
+                    <option value="0"<?php if($model["type"]=='0') echo 'selected'; ?>>Вечеринка</option>
+                    <option value="1"<?php if($model["type"]=='1') echo 'selected'; ?>>Массовые гуляния</option>
                 </select>
             </div>
 
@@ -69,7 +79,7 @@
 
             <div class="row">
                 <p>
-                    <input type="checkbox" id="checkBox1"/>
+                    <input type="checkbox" id="checkBox1" name="private" <?php if($model["private"]=='1') echo "checked"; ?>/>
                     <label for="checkBox1">Частное мероприятие</label>
                 </p>
                 <button class="waves-effect red btn">Сохранить</button>

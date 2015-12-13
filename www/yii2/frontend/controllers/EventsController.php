@@ -108,7 +108,7 @@ class EventsController extends Controller
             $event->geo_name = $post["geo_name"];
             $event->geo_google_maps_link = "https://www.google.com.ua/maps/search/kiev+geo+coo...";//$post["geo_google_maps_link"];
             $event->desc = $post["desc"];
-            $event->datetime = "2015-12-13 16:00:00";//$post["datetime"];
+            $event->datetime = $post["date"] . " " . $post["time"];
             $event->full_desc = $post["full_desc"];
             $event->people_count = 0;
             $event->max_people_count = $post["max_people_count"];
@@ -121,7 +121,7 @@ class EventsController extends Controller
             $event->updated = time();
             var_dump($event);
             $event->save(false);
-            $this->redirect("events/show/" . $link);
+            $this->redirect("/events/" . $link);
         }
 
         return $this->render('add');
@@ -166,9 +166,9 @@ class EventsController extends Controller
             throw new CHttpException(404, 'The specified post cannot be found.');
 
         if ($post = Yii::$app->request->post()) {
-            /*$trans = new Transliterate();
+            $trans = new Transliterate();
             $link = $trans->convert($post["name"]);
-            $event = new Events();
+            $event = Events::find()->where(['id' => Yii::$app->request->post("id")])->one();
             $event->name = $post["name"];
             $event->geo_x = "50.4853";//$post["geo_x"];
             $event->geo_y = "30.5154";//$post["geo_y"];
@@ -176,7 +176,7 @@ class EventsController extends Controller
             $event->geo_name = $post["geo_name"];
             $event->geo_google_maps_link = "https://www.google.com.ua/maps/search/kiev+geo+coo...";//$post["geo_google_maps_link"];
             $event->desc = $post["desc"];
-            $event->datetime = "2015-12-13 16:00:00";//$post["datetime"];
+            $event->datetime = $post["date"] . " " . $post["time"];
             $event->full_desc = $post["full_desc"];
             $event->people_count = 0;
             $event->max_people_count = $post["max_people_count"];
@@ -187,12 +187,10 @@ class EventsController extends Controller
             $event->FK_organizer_id = "1";//'';
             $event->created = time();
             $event->updated = time();
-            var_dump($event);
             $event->save(false);
-            $this->redirect("events/show/" . $link);*/
+            $this->redirect("/events/" . $link);
         }
 
-        echo $eventname;
-        return $this->render('edit', ['model' => $list->all()]);
+        return $this->render('edit', ['model' => $list->one()]);
     }
 }
