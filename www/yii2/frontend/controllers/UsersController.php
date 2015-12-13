@@ -68,7 +68,7 @@ class UsersController extends Controller
 			else
 				$error = 'Введіть, будь ласка, email';
 			if (isset($post['pass']) && !empty($post['pass']))
-				$pass = $post['password'];
+				$pass = $post['pass'];
 			else
 				$error = 'Введіть, будь ласка, пароль';
 			if (isset($post['name']) && !empty($post['name']))
@@ -78,10 +78,13 @@ class UsersController extends Controller
 
 			if (empty ($error)) {
 				$users = new \app\models\Users;
-				if ($users->signup($email, $pass, $name)) {
-					return $this->redirect('/events');
+				$users->email = $email;
+				$users->name  = $name;
+				$users->pass  = $pass;
+				if ($users->signup()) {
+					return $this->redirect('/');
 				} else
-					$error = 'На жаль, неможливо увійти через помилку у введенні email та/або паролю.';
+					$error = 'На жаль, неможливо зареєструватися через помилку введення даних.';
 			}
 			if (!empty ($error)){
 
@@ -99,9 +102,10 @@ class UsersController extends Controller
 				$vkAuthLink = $url . '?' . urldecode(http_build_query($params));
 
 
-				return  $this->render('signin', [
+				return  $this->render('signup', [
 					'email' => $email,
 					'pass'  => $pass,
+					'name'  => $name,
 					'error' => $error,
 					'vk_link' => $vkAuthLink
 				]);

@@ -44,21 +44,30 @@ class Users extends DaoUsers
 	 *
 	 * @return DaoUsers|null the saved model or null if saving fails
 	 */
-	public function signup($email, $pass, $name)
+	public function signup()
 	{
-		return;
-		if ($this->validate()) {
-			$user = new User();
-			$user->username = $this->username;
+		if (\frontend\models\Validator::cyryillic($this->name) &&
+			\frontend\models\Validator::email($this->email) &&
+			\frontend\models\Validator::login($this->pass)) {
+			$user = new Users();
+			$user->access = 1;
+			$user->image = '';
+			$user->name = $this->name;
+			$user->pass = md5($this->pass);
 			$user->email = $this->email;
-			$user->setPassword($this->password);
-			$user->generateAuthKey();
+			$user->link = (new \frontend\models\Transliterate())->convert($this->name);
+			$user->created = time ();
 			if ($user->save()) {
-				return $user;
+				$this->login = $user->email;
+				$this->pass = $user->pass;
+				$this->signin();
+				return true;
 			}
+			echo 222;
+			return false;
 		}
 
-		return null;
+		return false;
 	}
 
 	/**
